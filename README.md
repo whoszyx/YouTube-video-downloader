@@ -57,8 +57,8 @@ A `cookies.txt` file is optional and should only be used when needed.
 Replace the placeholders with your actual GitHub repository URL and folder name.
 
 ```bash
-git clone YOUR_REPOSITORY_URL
-cd YOUR_REPOSITORY_NAME
+git clone [Youtube_video_downloader](https://github.com/whoszyx/YouTube-video-downloader)
+cd [Youtube_video_downloader](https://github.com/whoszyx/YouTube-video-downloader)
 ```
 
 Alternatively, download the repository as a ZIP and extract it.
