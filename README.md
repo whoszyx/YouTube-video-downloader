@@ -1,5 +1,5 @@
  <p align="center">
-  <img src="./banner.png" alt="random.exe — Pull the feed. Own the file." width="100%">
+  <img src="./banner.jpg" alt="random.exe — Pull the feed. Own the file." width="100%">
 </p>
 
 <div align="center">
