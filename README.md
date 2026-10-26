@@ -1,54 +1,86 @@
+ <p align="center">
+  <img src="./banner.png" alt="random.exe — Pull the feed. Own the file." width="100%">
+</p>
+
+<div align="center">
+
 # random.exe
 
-> A minimal YouTube video downloader with a clean interface, video previews, and download progress tracking.
+**pull the feed. own the file.**
 
-`random.exe` is a self-hosted web application built with Python, Flask, JavaScript, and CSS. Paste a YouTube URL, preview the video information, and download the video directly through your browser.
+A minimal, self-hosted YouTube downloader built for people who like things simple.
+
+[Features](#-features) · [Installation](#-installation) · [Cookies Setup](#-how-to-get-your-own-cookiestxt) · [Security](#-security)
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-000000?style=flat-square&logo=flask&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![CSS](https://img.shields.io/badge/CSS-663399?style=flat-square&logo=css3&logoColor=white)
+
+</div>
+
+---
+
+## 🖤 About
+
+`random.exe` is a self-hosted YouTube video downloader powered by Python, Flask, and vanilla JavaScript.
+
+Paste a YouTube URL, fetch the video's information, and download it through a minimal interface designed around one idea: **less clutter, more control.**
+
+No complicated setup interface. No unnecessary distractions. Just a small project built to do its job.
 
 ## ✨ Features
 
-- 🎬 Fetch video titles, thumbnails, durations, and channel names.
-- ⬇️ Download videos in the best available video and audio quality.
-- 📊 Track download progress in real time.
-- 🔗 Support standard YouTube links, Shorts, live URLs, and shortened `youtu.be` links.
-- 🍪 Optional YouTube cookies support for videos that require an authenticated session.
-- 🖥️ Simple web interface powered by Flask and vanilla JavaScript.
-- 🔒 Run locally on your own computer.
+- 🎬 **Video previews** — retrieve available video information, including titles and thumbnails.
+- ⬇️ **Video downloads** — download supported videos through the web interface.
+- 📊 **Progress tracking** — monitor download progress.
+- 🔗 **YouTube URLs** — supports common YouTube URL formats, including Shorts and shortened links, subject to availability.
+- 🍪 **Optional cookies** — use your own local cookies when authentication is required.
+- 🖥️ **Self-hosted** — run the application on your own machine.
+- 🌑 **Minimal UI** — dark visuals, subtle scanlines, and red accent details.
 
 ## 🧰 Requirements
 
-Before getting started, make sure you have:
+Before running the application, install:
 
-- [Python](https://www.python.org/downloads/) installed.
-- [Git](https://git-scm.com/downloads) (optional, for cloning the repository).
-- [FFmpeg](https://ffmpeg.org/download.html) recommended for merging separate video and audio streams.
-- A Chromium-based browser, such as Chrome or Edge, if you need to export cookies.
-- Your own `cookies.txt` file only if the videos you want to access require it.
+- [Python](https://www.python.org/downloads/)
+- [Git](https://git-scm.com/downloads/) — optional, for cloning the repository
+- [FFmpeg](https://ffmpeg.org/download.html) — recommended for merging separate audio and video streams
+- A browser such as Chrome or Edge — only if you need to export cookies
+
+A `cookies.txt` file is optional and should only be used when needed.
 
 ## 🚀 Installation
 
 ### 1. Clone the repository
+
+Replace the placeholders with your actual GitHub repository URL and folder name.
 
 ```bash
 git clone YOUR_REPOSITORY_URL
 cd YOUR_REPOSITORY_NAME
 ```
 
-Alternatively, download the repository as a ZIP file and extract it.
+Alternatively, download the repository as a ZIP and extract it.
 
-### 2. Install the dependencies
-
-Open a terminal inside the project folder and run:
+### 2. Create a virtual environment
 
 ```bash
 python -m venv .venv
 ```
 
-Activate the virtual environment.
+Activate it.
 
-**Windows:**
+**Windows — PowerShell:**
 
 ```powershell
-.venv\Scripts\activate
+.venv\Scripts\Activate.ps1
+```
+
+**Windows — Command Prompt:**
+
+```bat
+.venv\Scripts\activate.bat
 ```
 
 **Linux / macOS:**
@@ -57,23 +89,21 @@ Activate the virtual environment.
 source .venv/bin/activate
 ```
 
-Install the required Python packages:
+### 3. Install dependencies
 
 ```bash
 python -m pip install flask yt-dlp
 ```
 
-### 3. Set up cookies (optional)
+If the project includes a `requirements.txt`, use this instead:
 
-Some videos may require authentication. If you encounter access errors, you can export your own YouTube cookies and place the resulting file in the project root.
-
-See [How to Get Your Own `cookies.txt`](#-how-to-get-your-own-cookiestxt) below.
-
-**Important:** You do not need to upload your cookies to GitHub or send them to anyone.
+```bash
+python -m pip install -r requirements.txt
+```
 
 ### 4. Start the application
 
-Run:
+Run the Flask application from the project directory:
 
 ```bash
 python app.py
@@ -89,36 +119,36 @@ Keep the terminal open while using the application.
 
 ## 🍪 How to Get Your Own `cookies.txt`
 
-Only export cookies from your own browser session and account. Cookies can contain authentication credentials that may allow someone else to access your account.
+Some videos may require an authenticated browser session. If you encounter access errors, you can export your own cookies for local use.
+
+**Cookies are sensitive. Never share your exported file with anyone or commit it to GitHub.**
 
 ### Step 1 — Install the extension
 
-Install the **Get cookies.txt LOCALLY** extension from the official Chrome Web Store or the corresponding official browser extension store.
+Find **Get cookies.txt LOCALLY** in the official [Chrome Web Store](https://chromewebstore.google.com/).
 
-Search for:
-
-`Get cookies.txt LOCALLY`
-
-Check the extension's publisher and permissions before installing it. Avoid unofficial copies.
+Check the publisher, permissions, and extension details before installing it. Do not install unofficial copies from random websites.
 
 ### Step 2 — Open YouTube
 
 1. Open [YouTube](https://www.youtube.com/).
-2. Sign in to your own account if authentication is needed.
-3. Make sure YouTube is open in the same browser where you installed the extension.
+2. Sign in only if authentication is needed.
+3. Make sure you're using the browser where the extension is installed.
 
-### Step 3 — Export the cookies
+### Step 3 — Export your cookies
 
-1. While on YouTube, click the extension icon in your browser toolbar.
-2. If necessary, open the extensions menu and select the cookie-export extension.
-3. Follow its instructions to export cookies for the current YouTube site.
+1. Open YouTube in your browser.
+2. Click the extension icon in the toolbar, or find it in the extensions menu.
+3. Follow the extension's instructions to export cookies for the current site.
 4. Save the exported file as `cookies.txt`.
 
-The extension's exact interface may vary by version.
+The exact steps may vary depending on the extension version.
 
-### Step 4 — Put the file in the project folder
+### Step 4 — Place the file locally
 
-Your local project should look something like this:
+Put `cookies.txt` in the directory expected by the application.
+
+Example:
 
 ```text
 random.exe/
@@ -127,22 +157,28 @@ random.exe/
 ├── style.css
 ├── templates/
 │   └── index.html
-├── cookies.txt          # Local only — never publish
+├── cookies.txt       # Private — never upload
+├── banner.png
+├── README.md
 └── .gitignore
 ```
 
-The Flask application looks for `cookies.txt` in its working directory. If the file exists there, `yt-dlp` will use it automatically.
+The application uses the cookie file if it exists at the configured path. If YouTube still rejects a request, the cookies may have expired or the video may have other restrictions.
 
-If YouTube still rejects the request, the cookies may be expired or the video may require another form of access. Exporting cookies does not guarantee that every video will work.
+**You do not need cookies for every video.** Try without them first.
 
-## 🔐 Keep Your Cookies Private
+## 🔐 Security
 
-**Never commit `cookies.txt` to a public repository.** It may contain session cookies that can compromise your Google or YouTube account.
+Your account matters more than getting a download to work.
 
-Create a `.gitignore` file in the project root and add:
+### Never publish your cookies
+
+A `cookies.txt` file may contain session credentials that could allow someone to access your Google or YouTube account.
+
+Create a `.gitignore` file in your repository root and add:
 
 ```gitignore
-# Authentication cookies — never publish
+# Sensitive authentication cookies
 cookies.txt
 *.cookies.txt
 
@@ -152,38 +188,58 @@ __pycache__/
 .venv/
 venv/
 
-# Local environment files
+# Local environment secrets
 .env
 .env.*
 !.env.example
 ```
 
-If `cookies.txt` was already tracked by Git, adding it to `.gitignore` is not enough. Remove it from Git's tracking with:
+This prevents matching untracked files from being added to Git accidentally.
+
+### If the file was already committed
+
+Adding it to `.gitignore` does not remove it from Git's tracking. If you have already committed it, run:
 
 ```bash
 git rm --cached cookies.txt
 git add .gitignore
-git commit -m "Stop tracking sensitive cookies"
+git commit -m "Remove cookies from tracking"
 ```
 
-This does not erase copies from earlier commits. If you already pushed real cookies publicly, treat them as compromised: revoke the affected sessions where possible, review your Google account security, and clean the repository's history before republishing.
+This does **not** remove the file from previous commits.
 
-**Never ask other users to send you their cookie files.** Each user should keep their own export on their own machine.
+If real cookies were published, treat them as compromised. Review your [Google Account Security](https://myaccount.google.com/security), revoke affected sessions where possible, and clean the repository history before republishing.
+
+### Hosting the application
+
+If you deploy `random.exe` to a public server:
+
+- Do not include your personal `cookies.txt`.
+- Do not let visitors access server files or download arbitrary server paths.
+- Do not expose authentication cookies through logs, error messages, or API responses.
+- Apply request limits and protect the download endpoints from abuse.
+- Remember that anyone who can access the public site may be able to use its backend.
+
+For a public deployment, avoid using your personal authenticated session to serve requests for strangers.
 
 ## 🗂️ Project Structure
 
-| File | Purpose |
+| File | Description |
 |---|---|
-| `app.py` | Flask backend, video information extraction, download jobs, and progress endpoints |
-| `app.js` | Frontend interactions, video preview, and progress updates |
+| `app.py` | Python Flask backend and download logic |
+| `app.js` | Frontend JavaScript |
 | `style.css` | Application styling |
-| `templates/index.html` | HTML page rendered by Flask |
-| `cookies.txt` | Optional local authentication cookies; must remain private |
-| `.gitignore` | Prevents sensitive and unnecessary files from being committed |
+| `templates/index.html` | HTML template rendered by Flask |
+| `banner.png` | Repository banner |
+| `README.md` | Project documentation |
+| `.gitignore` | Excludes sensitive and unnecessary files |
+| `cookies.txt` | Optional private local cookies; never publish |
 
 ## 🛠️ Troubleshooting
 
-**Video information cannot be fetched**
+<details>
+<summary><strong>Video information cannot be fetched</strong></summary>
+
 - Check that the URL is valid.
 - Update `yt-dlp`:
 
@@ -191,26 +247,50 @@ This does not erase copies from earlier commits. If you already pushed real cook
   python -m pip install -U yt-dlp
   ```
 
-- Some videos may be restricted or unavailable.
+- The video may be private, unavailable, age-restricted, or otherwise inaccessible.
 
-**Download fails or audio is missing**
+</details>
+
+<details>
+<summary><strong>Download fails or audio is missing</strong></summary>
+
 - Install FFmpeg and ensure it is available in your system's PATH.
-- Check the error displayed in the application or terminal.
-- If authentication is required, verify that your local cookies are valid.
+- Check the terminal for error messages.
+- Update `yt-dlp` and try again.
 
-**The cookies file is not being detected**
-- Make sure the filename is exactly `cookies.txt`.
-- Place it in the directory from which you run `app.py`.
-- Never solve this by uploading your personal cookies to a public repository.
+</details>
+
+<details>
+<summary><strong>The cookies file is not detected</strong></summary>
+
+- Check that the filename is exactly `cookies.txt`.
+- Confirm that it is in the configured location.
+- Verify that the file is ignored by Git.
+- Never upload your cookies to fix a local configuration issue.
+
+</details>
+
+<details>
+<summary><strong>The application does not start</strong></summary>
+
+- Check that Python is installed.
+- Activate your virtual environment.
+- Install the dependencies.
+- Make sure the port used by Flask is available.
+
+</details>
 
 ## ⚠️ Disclaimer
 
-This project is intended for personal use and educational purposes. Only download content you have permission to download, and respect copyright, applicable laws, and YouTube's terms of service.
+This project is intended for personal use and educational purposes.
 
-This project is not affiliated with, endorsed by, or sponsored by YouTube or Google.
+Only download content you have permission to download. Respect copyright, applicable laws, and YouTube's terms of service.
 
----
+This project is independent and is not affiliated with, endorsed by, or sponsored by YouTube or Google.
 
-Made with Python, JavaScript, and a little bit of chaos.
+## 🖤 Credits
 
-**random.exe**
+Built with Python, Flask, JavaScript, CSS, and a little bit of chaos.
+
+**random.exe — pull the feed. own the file.**
+
